@@ -53,7 +53,7 @@ import edu.curso.java.proyecto.trackandbug.service.UsuarioService;
 		
 		@PostMapping
 		public ResponseEntity<ProyectoDTO> altaProyectos(@Valid @RequestBody ProyectoDTO proyectoDTO){
-			Usuario usuario = usuarioService.buscarPorId(proyectoDTO.getResponsable());
+			Usuario usuario = usuarioService.buscarUsuarioPorId(proyectoDTO.getResponsable());
 			if (usuario == null) {
 				return null;
 			}

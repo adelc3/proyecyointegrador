@@ -6,13 +6,9 @@ import edu.curso.java.proyecto.trackandbug.bo.Usuario;
 
 public interface UsuarioService {
 
-	public Usuario buscarPorId(Long id);
+	public Usuario buscarUsuarioPorId(Long responsable);
 
-	public List<Usuario> buscarUsuario();
 
-	public Long altaUsuarios(Usuario usuarios);
-
-	public List<Usuario> buscarUsuariosPorId(Object id);
 
 
 }

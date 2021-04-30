@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import edu.curso.java.proyecto.trackandbug.bo.Proyecto;
 
 @Repository
-public interface ProyectoRepository extends JpaRepository<Proyecto, Long> {
+public interface ProyectoRepository extends CrudRepository<Proyecto, Long> {
 	
 	@Query(value = "select p from Proyecto p")
 	public List<Proyecto> buscarProyectos();
