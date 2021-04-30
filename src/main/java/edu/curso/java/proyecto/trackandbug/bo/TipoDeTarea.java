@@ -12,6 +12,7 @@ public class TipoDeTarea {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
 	private String nombre;
 	
 	

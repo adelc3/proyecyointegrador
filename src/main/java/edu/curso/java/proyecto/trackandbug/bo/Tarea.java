@@ -14,37 +14,22 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "TAREAS")
 public class Tarea {
-	
+
 	@Id
 	@GeneratedValue
-	private Long id;										
+	private Long id;
 	private String nombre;
 	private Integer horasAsignadas;
+
 	@ManyToOne
 	private Proyecto proyecto;
-		
-	public Integer getHorasAsignadas() {
-		return horasAsignadas;
-	}
-
-	public void setHorasAsignadas(Integer horasAsignadas) {
-		this.horasAsignadas = horasAsignadas;
-	}
-
-	public Proyecto getProyecto() {
-		return proyecto;
-	}
-
-	public void setProyecto(Proyecto proyecto) {
-		this.proyecto = proyecto;
-	}
 
 	@ManyToOne
 	private TipoDeEstado tipoDeEstado;
-		
+
 	@ManyToOne
 	private TipoDeTarea tipoDeTarea;
-	
+
 	@OneToMany
 	private List<Comentario> comentarios = new ArrayList<Comentario>();
 
@@ -129,4 +114,21 @@ public class Tarea {
 	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
+
+	public Integer getHorasAsignadas() {
+		return horasAsignadas;
+	}
+
+	public void setHorasAsignadas(Integer horasAsignadas) {
+		this.horasAsignadas = horasAsignadas;
+	}
+
+	public Proyecto getProyecto() {
+		return proyecto;
+	}
+
+	public void setProyecto(Proyecto proyecto) {
+		this.proyecto = proyecto;
+	}
+
 }

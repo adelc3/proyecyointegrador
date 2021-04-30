@@ -10,13 +10,23 @@ import javax.persistence.Table;
 public class TipoDeEstado {
 
 	@Id
+	private Long idTipoDeEstado;
+	
 	private String nombre;
 		
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + ((idTipoDeEstado == null) ? 0 : idTipoDeEstado.hashCode());
 		return result;
 	}
 
@@ -30,20 +40,22 @@ public class TipoDeEstado {
 			return false;
 		TipoDeEstado other = (TipoDeEstado) obj;
 		
-		if (nombre == null) {
-			if (other.nombre != null)
+		if (idTipoDeEstado == null) {
+			if (other.idTipoDeEstado != null)
 				return false;
-		} else if (!nombre.equals(other.nombre))
+		} else if (!idTipoDeEstado.equals(other.idTipoDeEstado))
 			return false;
 		return true;
 	}
 
-
-	public String getNombre() {
-		return nombre;
+	public Long getIdTipoDeEstado() {
+		return idTipoDeEstado;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setIdTipoDeEstado(Long idTipoDeEstado) {
+		this.idTipoDeEstado = idTipoDeEstado;
 	}
+
+
+
 }

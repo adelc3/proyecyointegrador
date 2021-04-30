@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.curso.java.proyecto.trackandbug.bo.Proyecto;
 import edu.curso.java.proyecto.trackandbug.bo.Usuario;
 import edu.curso.java.proyecto.trackandbug.service.ProyectoService;
+import edu.curso.java.proyecto.trackandbug.service.UsuarioService;
 
 	@RestController
 	@RequestMapping("/proyectos")
@@ -27,6 +28,9 @@ import edu.curso.java.proyecto.trackandbug.service.ProyectoService;
 
 		@Autowired
 		private ProyectoService proyectoService;
+		
+		@Autowired
+		private UsuarioService usuarioService;
 		
 		@GetMapping(path = "/{id}")
 		public ResponseEntity<ProyectoDTO> recuperarProyectoPorId(@PathVariable Long id) {
@@ -49,14 +53,16 @@ import edu.curso.java.proyecto.trackandbug.service.ProyectoService;
 		
 		@PostMapping
 		public ResponseEntity<ProyectoDTO> altaProyectos(@Valid @RequestBody ProyectoDTO proyectoDTO){
+			Usuario usuario = usuarioService.buscarPorId(proyectoDTO.getResponsable());
+			if (usuario == null) {
+				return null;
+			}
 			Proyecto proyectos = new Proyecto();
+			proyectos.setResponsable(usuario);
 			proyectos.setNombre(proyectoDTO.getNombre());
 			proyectos.setHorasAsignadas(proyectoDTO.getHorasAsignadas());
-			/*
-			Usuario usuario = new Usuario();
-			usuario.setId(proyectoDTO.getResponsable());
-			proyectos.setResponsable(usuario);
-			*/
+			
+			
 			System.out.println(proyectos.getResponsable());
 			
 			Long idGenerado = proyectoService.altaProyectos(proyectos);

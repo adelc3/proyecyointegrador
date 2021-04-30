@@ -30,7 +30,7 @@ public class ProyectoServiceImp implements ProyectoService {
 
 	@Override
 	public Proyecto buscarProyectosPorId(Long id) {
-		return proyectosRepository.findById(id).get();
+		return proyectosRepository.getOne(id);
 	}
 
 	@Override
