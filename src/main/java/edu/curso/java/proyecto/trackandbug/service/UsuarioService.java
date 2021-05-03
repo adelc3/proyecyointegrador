@@ -8,6 +8,18 @@ public interface UsuarioService {
 
 	public Usuario buscarUsuarioPorId(Long id);
 
+	List<Usuario> buscarUsuarios();
+
+	Long altaUsuarios(Usuario usuarios);
+
+	Usuario buscarUsuariosPorId(Long id);
+
+	List<Usuario> buscarUsuarios(String nombre);
+
+	void borrarUsuarios(Long id);
+
+	void actualizarUsuarios(Usuario usuarios);
+
 
 
 
