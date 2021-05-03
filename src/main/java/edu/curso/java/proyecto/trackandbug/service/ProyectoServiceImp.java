@@ -47,6 +47,14 @@ public class ProyectoServiceImp implements ProyectoService {
 	public void actualizarProyectos(Proyecto proyectos) {
 		proyectosRepository.save(proyectos);	
 	}
+
+	public UsuarioRepository getUsuarioRepository() {
+		return usuarioRepository;
+	}
+
+	public void setUsuarioRepository(UsuarioRepository usuarioRepository) {
+		this.usuarioRepository = usuarioRepository;
+	}
 }
 
 	

@@ -18,5 +18,7 @@ public interface ProyectoRepository extends CrudRepository<Proyecto, Long> {
 	
 	@Query(value = "select p from Proyecto p where p.nombre like %:nombre%")
 	public List<Proyecto> buscarProyectos(@Param("nombre") String nombre);
+
+	public Proyecto getOne(Long id);
 	
 }

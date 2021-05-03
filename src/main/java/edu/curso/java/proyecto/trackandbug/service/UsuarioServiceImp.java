@@ -12,7 +12,7 @@ public abstract class UsuarioServiceImp implements UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	public Usuario buscarPorId(Long id) {
+	public Usuario buscarUsuarioPorId(Long id) {
 		return usuarioRepository.getOne(id);
 	}	
 }
